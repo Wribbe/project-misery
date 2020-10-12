@@ -2,9 +2,11 @@
 #include <stdio.h>
 
 #include "utils.h"
+#include "window.h"
 
 int
 main(void)
 {
-  ERR("%s\n", "HELLO WORLD");
+  struct wWindow window = wWindow_get();
+  INFO("Name of window: %s\n", window.name);
 }
