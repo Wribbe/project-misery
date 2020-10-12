@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "utils.h"
+
 int
 main(void)
 {
-  printf("HELLO WORLD.\n");
+  ERR("%s\n", "HELLO WORLD");
 }
