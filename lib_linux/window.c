@@ -10,3 +10,10 @@ wWindow_get(void)
     .name = "HELLO"
   };
 }
+
+
+const char *
+wWindow_name_get(struct wWindow * window)
+{
+  return window->name;
+}

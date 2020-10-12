@@ -8,5 +8,5 @@ int
 main(void)
 {
   struct wWindow window = wWindow_get();
-  INFO("Name of window: %s\n", window.name);
+  INFO("Name of window: %s.\n", wWindow_name_get(&window));
 }
