@@ -1,1 +1,4 @@
-bin_*
+*_bin
+*_build
+glfw
+glad
