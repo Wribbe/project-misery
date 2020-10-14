@@ -27,7 +27,7 @@ CC_linux := gcc
 CMAKE_OPTS_linux :=
 
 
-FLAGS_windows = ${FLAGS}
+FLAGS_windows = ${FLAGS} -mwindows
 CC_windows := x86_64-w64-mingw32-gcc
 CMAKE_OPTS_windows := \
 	-DCMAKE_TOOLCHAIN_FILE=$(shell \
