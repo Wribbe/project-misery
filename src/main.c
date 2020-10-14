@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "objloader.h"
+
 static const struct
 {
     float x, y;
@@ -105,6 +107,10 @@ int main(void)
     glEnableVertexAttribArray(vcol_location);
     glVertexAttribPointer(vcol_location, 3, GL_FLOAT, GL_FALSE,
                           sizeof(vertices[0]), (void*) (sizeof(float) * 2));
+
+
+    struct model_obj obj_cube = load_model_obj("res/test.obj");
+
 
     while (!glfwWindowShouldClose(window))
     {

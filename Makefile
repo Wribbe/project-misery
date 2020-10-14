@@ -2,7 +2,7 @@ ARCH := linux
 
 DIR_SRC := src
 DIR_BIN := bin/${ARCH}
-DIR_LIB := lib/${ARCH}
+DIR_LIB := lib
 DIR_BUILD := build/${ARCH}
 DIR_SRC_DEP := GIT
 
@@ -17,7 +17,8 @@ GLFW_FLAGS = $(shell pkg-config ${DIR_BUILD}/glfw/src/glfw3.pc --static --libs)
 
 FLAGS = -Wall -g -pedantic $(filter-out -lglfw3,${GLFW_FLAGS})
 
-INCLUDES := -Iinclude -I${DIR_LIB} \
+INCLUDES := \
+	-Iinclude \
 	-I${DIR_SRC_DEP}/glfw/include \
 	-I${DIR_BUILD}/glad/include \
 
@@ -40,7 +41,7 @@ DEPS := \
   $(wildcard ${DIR_LIB}/*) \
 	$(wildcard include/*) \
 	${DIR_BUILD}/glfw/src/libglfw3.a \
-	${DIR_BUILD}/glad/libglad.a
+	${DIR_BUILD}/glad/libglad.a \
 
 
 all: ${BINS_${ARCH}}
@@ -68,7 +69,7 @@ ${DIR_BUILD}/glad/libglad.a : | ${DIR_SRC_DEP}/glad
 		cd ${DIR_BUILD}/glad && cmake ${CMAKE_OPTS_${ARCH}} $$SRC && make
 
 
-${DIR_SRC_DEP}/glfw: | ${DIR_BUILD}
+${DIR_SRC_DEP}/glfw : | ${DIR_BUILD}
 	git clone https://github.com/glfw/glfw $@
 
 
