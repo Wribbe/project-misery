@@ -10,5 +10,6 @@ load_model_obj(const char * path_model)
     ERR("Could not load any data for model: %s\n", path_model);
     return (struct model_obj){0};
   }
+  printf("Got data: %s\n", data);
   return (struct model_obj){0};
 }

@@ -109,7 +109,7 @@ int main(void)
                           sizeof(vertices[0]), (void*) (sizeof(float) * 2));
 
 
-    struct model_obj obj_cube = load_model_obj("res/test.obj");
+    struct model_obj obj_cube = load_model_obj("res/cube.obj");
 
 
     while (!glfwWindowShouldClose(window))
